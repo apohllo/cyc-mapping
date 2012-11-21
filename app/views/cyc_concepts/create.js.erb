@@ -1,0 +1,4 @@
+$('#<%= symbol_id(@concept) %>').
+  replaceWith("<%= escape_javascript(render(:partial => "symbol_content", 
+       :object =>  @concept)) %>");
+recurringBinds("rebind",'#<%= symbol_id(@concept) %>');

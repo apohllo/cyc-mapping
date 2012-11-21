@@ -1,0 +1,5 @@
+= panel do
+  %h4 Propozycje mapowania
+  %table{:style => "width: 100%"}
+    - @concepts.each do |concept|
+      = render :partial => "concepts/concept", :object => concept

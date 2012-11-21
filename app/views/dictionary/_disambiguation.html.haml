@@ -1,0 +1,14 @@
+%ul
+  - first = true
+  - disambiguation[:concepts].each do |concept,value|
+    %li
+      - if first
+        - first = false
+        %strong= concept.base_form
+      - else 
+        = concept.base_form
+      = concept.id
+      = concept.categories(true).map{|c| c.base_form}.join(", ")
+      = concept.sources(true).map{|s| s.base_form}.join(", ")
+      = sprintf("%.3f",value)
+  %li= source_stats(disambiguation[:stats]) 

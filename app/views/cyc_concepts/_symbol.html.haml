@@ -1,0 +1,5 @@
+= render :partial => "cyc_concepts/symbol_content", :object => symbol
+%tr
+  %td{:colspan => "11"}
+    - %w{cyc_parents cyc_children instances semantic_types cyc_comment spellings description}.each do |type|
+      = related_hook(symbol,type)

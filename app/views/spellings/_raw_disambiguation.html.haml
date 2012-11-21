@@ -1,0 +1,30 @@
+= panel do
+  - form_for [@spelling.concept,@spelling], :url => concept_spellings_path(@spelling.concept,@spelling), :remote => true do |f|
+    = hidden_field_tag "words_count", raw_disambiguation.size
+    = f.hidden_field :name
+    = f.hidden_field :concept_id
+    - all_words_present = true
+    - raw_disambiguation.each_with_index do |spellings,index|
+      - word = spellings.shift
+      %div
+        %strong= word
+        %ul
+          - if spellings.empty?
+            - all_words_present = false
+            %li
+              %strong Brak słowa w słowniku
+              = link_to image_tag("add.png"), new_lexeme_path, :"data-update" => "new_lexeme_#{element_id(@spelling.concept)}", :remote => true
+          - else
+            - spellings.each do |spelling|
+              %li
+                = spelling[:lexeme].lemma
+                %emph= spelling[:lexeme].part_of_speech
+                = spelling[:lexeme].inflection_label
+                %ul
+                  - spelling[:tags].each do |tags|
+                    %li
+                      = tags_radio_button(tags,index,spelling[:lexeme])
+                      = tags_label(tags)
+    - if all_words_present
+      %input{:type => "image", :src => image_path("accept.png")}
+  %div{:id => "new_lexeme_#{element_id(@spelling.concept)}"}

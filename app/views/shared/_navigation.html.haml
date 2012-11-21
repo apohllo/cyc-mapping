@@ -1,0 +1,14 @@
+%div
+  = paginate(navigation)
+  :javascript
+    $('.pagination a').attr('data-remote', 'true')
+    $('.pagination a').attr('data-type', 'html')
+    $('.pagination a').attr('data-update', '#{update}')
+  - if false && navigation.total_pages > 1 # check out kaminari
+    .pagination_form
+      = form_for_page(update) do
+        - default_remote_options.each do |option,value|
+          - unless value.to_s.empty?
+            = hidden_field_tag option, value
+        = text_field_tag "page", ""
+  .clear

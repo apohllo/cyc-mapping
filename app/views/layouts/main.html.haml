@@ -1,0 +1,38 @@
+/ encoding utf-8
+!!!html
+%html
+  %head
+    %title Cyc translation
+    = stylesheet_link_tag "main"
+    = javascript_include_tag "jquery"
+    = javascript_include_tag "jquery-ui-1.8.9.custom.min"
+    = javascript_include_tag "rails"
+    = javascript_include_tag "application"
+    /%base{:id => ::BASE_URL}
+  %body
+    #container
+      #header
+        Cyc translation
+      - if current_user
+        #menu
+          = render :partial => 'shared/menu'
+        #create_form
+        #search
+      #title
+        - if @title
+          %h2= @title
+      #flash
+        .error= flash[:error]
+        .notice= flash[:notice]
+      #content
+        = yield
+      #footer
+        &copy; Aleksander Pohl 2010-2012
+      #spinner{:style => "display: none"}
+        %center
+          = image_tag("spinner.gif")
+          Please wait
+      #error_box{:style => "display: none"}
+        %center
+          = image_tag("delete.gif")
+          An error occurred!

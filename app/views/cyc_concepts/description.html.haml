@@ -1,0 +1,9 @@
+= panel do 
+  %ul
+    - @descriptions.each do |description|
+      %li
+        - description.each do |segment|
+          - unless segment[:object].nil?
+            %acronym{:title => segment[:object].name}= segment[:text]
+          - else
+            = segment[:text]

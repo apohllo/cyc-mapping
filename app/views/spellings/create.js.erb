@@ -1,0 +1,10 @@
+$('#<%= related_id(@spelling.concept,"spellings_list") %>').
+  append("<%= escape_javascript(render(:partial => "spelling",
+  :object =>  @spelling)) %>");
+recurringBinds('rebind','#<%= related_id(@spelling.concept,"spellings_list") %>');
+<% if @spelling.concept.spellings.count == 1 %>
+  $('#<%= symbol_id(@spelling.concept) %>').
+    replaceWith("<%= escape_javascript(render(:partial => "cyc_concepts/symbol_content",
+         :object =>  @spelling.concept)) %>");
+  recurringBinds('rebind','#<%= symbol_id(@spelling.concept) %>');
+<% end %>

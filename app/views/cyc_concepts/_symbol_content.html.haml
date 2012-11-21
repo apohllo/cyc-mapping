@@ -1,0 +1,25 @@
+%tr{:id => symbol_id(symbol_content), :db_id => symbol_content.id}
+  %td
+    = related_button(symbol_content,"cyc_parents",image_tag("up.png"))
+    = symbol_content.native_parents_count
+  %td
+    = related_button(symbol_content,"cyc_children",image_tag("down.png"))
+    = symbol_content.native_children_count
+  %td
+    = related_button(symbol_content,"instances",image_tag("instance.png"))
+    = symbol_content.instances_count
+  %td
+    = related_button(symbol_content,"semantic_types",image_tag("umbel.ico"))
+  %td
+    - if symbol_content.new_record?
+      = link_to(image_tag("add.png"), {:name => symbol_content.name, :action => "create", :controller => "cyc_concepts"}, :method => :post, :remote => true)
+  %td
+    %strong.droppable{:id => related_id(symbol_content,"as_parent")}= symbol_content.name
+  %td
+    = related_button(symbol_content, "cyc_comment", image_tag("details.png"))
+  %td
+    - unless symbol_content.new_record?
+      = link_to_spelling(symbol_content)
+  %td
+    - unless symbol_content.translation.blank?
+      = related_button(symbol_content, "description", image_tag("details.png"))

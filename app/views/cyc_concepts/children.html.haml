@@ -1,0 +1,5 @@
+= panel do 
+  %h4 Pojęcia podrzędne
+  %table{:style => "width: 100%"}
+    - @children.each do |child|
+      = render :partial => "concepts/concept", :object => child

@@ -1,0 +1,4 @@
+$('#<%= related_id(@spelling.concept,"spellings_list") %>').
+  append("<%= escape_javascript(render(:partial => "disambiguation",
+                                       :object => @spellings)) %>");
+recurringBinds('rebind','#<%= related_id(@spelling.concept,"spellings_list") %>');

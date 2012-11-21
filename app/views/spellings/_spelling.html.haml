@@ -1,0 +1,8 @@
+%li{:id => related_id(spelling,"spelling")}
+  = spelling_status(spelling)
+  = spelling.name
+  .delete= button_to "", spelling_path(spelling), :method => :delete, :remote => true
+  - unless [:validated,:primary].include?(spelling.status)
+    = change_status(spelling,:validated)
+  - unless [:primary].include?(spelling.status)
+    = change_status(spelling,:primary)

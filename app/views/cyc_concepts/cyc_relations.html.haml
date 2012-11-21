@@ -1,0 +1,10 @@
+= panel do 
+  - if @relations.empty?
+    no elements found
+  - else
+    = image_tag("link.png")
+    %table{:style => "width: 100%"}
+      - @relations.each do |index,relations|
+        %tr
+          %th{:cospan => 10}= "Arg #{index+1}"
+        = render :partial => "symbol", :collection => relations

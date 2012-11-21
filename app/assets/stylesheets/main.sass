@@ -1,0 +1,273 @@
+//#99CCCC
+//#8BBEC7
+//#7DB0C3
+//#6FA2BE
+//#6194B9
+//#5386B5
+//#4679B0
+//#386BAC
+//#2A5DA7
+//#1C4FA2
+//#0E419E
+//#003399
+$box_bg: #F9EEE2
+$box_border: #9D870C
+$relations_bg: #F9EEE2
+$container_width: 980px
+$spinner_width: 300px
+$even_row: #C7BD65
+$odd_row: #C7B265
+$body_bg: #FFFFFF
+$link: #2A728E
+$strong: #F93F03
+$first_argument: #33DD33
+$second_argument: #3333DD
+
+*
+  :margin 0
+  :padding 0
+
+body
+  :font-family Verdana
+  :font-size 14px
+  :background-color $body_bg
+
+table
+  :width 100%
+
+#container
+  :margin auto
+  :width $container_width
+
+#header
+  :font-size 2em
+  :padding 20px
+  :text-align center
+  :background-color $box_bg
+  :margin 10px 0
+  :border 1px solid $box_border
+
+#list
+  :padding 10px
+  table
+    :border-collapse collapse
+  td
+    :padding 1px 0
+  tr:nth-child(4n+1)
+    :background $box_bg
+
+#footer
+  :border 1px solid $box_border
+  :background-color $box_bg
+  :padding 10px
+  :text-align center
+  :margin 20px 0 10px 0
+
+#flash
+  .error
+    :color red
+  .notice
+    :color green
+
+.clear
+  :clear both
+
+ul
+  :padding-left 20px
+  :list-style none
+
+dt
+  :font-weight bold
+  :padding-left 20px
+
+dd
+  :padding-left 40px
+
+a
+  :color $link
+  :text-decoration none
+  &:hover
+    :text-decoration underline
+  img
+    :border none
+
+emph
+  :font-style italic
+
+input, textarea
+  :border 1px solid $box_border
+  :padding 2px
+  :margin 4px 0px
+  &[type="image"]
+    :border none
+    :padding 0
+    :margin 0
+
+th
+  :text-align left
+
+.lexeme
+  :border 1px dashed $box_border
+  :margin 6px 0
+  :padding 4px
+  &.accepted
+    :border 1px solid $box_border
+    :background #aaccaa
+    legend
+      :background #aaccaa
+  legend
+    :border 1px solid $box_border
+    :padding 3px 6px
+    :font-weight bold
+
+.relations
+  :border 1px solid $box_border
+  :background-color $relations_bg
+  :padding 10px 0
+  :margin 5px 20px 5px 0
+  :width 100%
+  .content
+    :float left
+    :margin-left 10px
+    :width 100%
+  .actions
+    :text-align right
+    :margin-right 10px
+
+.pagination
+  :float left
+
+.pagination_form
+  input
+    :width 60px
+    :margin 5px
+    :height 16px
+
+.navigation, .letters, .pagination, .filter, .order
+  :margin 5px 0
+  a, .selected, .elipsis, .page, em, .gap, .disabled
+    :font-size 12px
+    :border solid 1px $box_border
+    :padding 2px 4px
+    :color $link
+    :font-weight bold
+  .selected, em, .current
+    :background-color $strong
+    :font-style normal
+    :color black
+  .elipsis, .gap, .disabled
+    :background-color #8BBEC7
+  .page_form
+    :display inline
+    :font-size 12px
+    :padding 2px 4px
+    :color $link
+    :font-weight bold
+  a
+    :background-color $box_bg
+    &:hover
+      :text-decoration none
+  span.page
+    :padding 0px
+    :border 0px
+  span.page.current, span.page.gap
+    :padding 2px 4px
+    :border solid 1px $box_border
+    :margin-right 4px
+
+.stats
+  :font-size 10px
+
+.drag
+  :background-color grey
+  :padding 2px 4px
+
+.highlighted
+  :background-color yellow
+
+.full_description .first_argument, .first_description .first_argument, .context .first_argument, .options .first_argument
+  :color $first_argument
+  :font-weight bold
+
+.full_description .second_argument, .second_description .first_argument, .context .second_argument, .options .second_argument
+  :color $second_argument
+  :font-weight bold
+
+.correlation
+  th.top
+    :vertical-align bottom
+    :text-align center
+    :padding 0 5px
+    &.odd
+      :background-color $odd_row
+    &.even
+      :background-color $even_row
+  tr.odd, td.odd
+    :background-color $odd_row
+  tr.even, td.even
+    :background-color $even_row
+  input
+    :width 20px
+
+.selected
+  .concept
+    :background-color #99CCCC
+
+.fieldWithErrors
+  :display inline
+  input
+    :border 1px solid red
+
+.details
+  td, th
+    :padding-right 15px
+  th
+    :padding-top 5px
+
+.wiki
+  :border 1px solid gray
+
+.hidden
+  :display none
+
+.raw_data
+  textarea
+    :width $container_width - 40px
+
+.inline
+  :display inline
+  form
+    :display inline
+
+#errorExplanation
+  :background #ff8888
+  :width 400px
+  :padding 5px
+  :border 1px solid red
+  h2
+    :font-size 12px
+
+#spinner, #error_box
+  :position absolute
+  :width 200px
+  :border 1px solid
+  :border-color $box_border
+  :background $box_bg
+  :top $spinner_width
+  :left $container_width - ($spinner_width / 2)
+  :padding 20px 0
+
+.delete
+  :display inline
+  div
+    :display inherit
+  form
+    :display inherit
+  input
+    :display inherit
+    :background-color red
+    :background image_url("delete.png")
+    :border 0px
+    :width 16px
+    :height 16px
+    :margin 0px

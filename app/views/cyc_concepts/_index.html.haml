@@ -1,0 +1,5 @@
+= paginated_list("symbols") do
+  = render :partial => "shared/order", :locals => {:names => ["name","# of direct subtypes","# of subtypes","# of instances"], :update => "symbols"}
+  = render :partial => "shared/filter", :locals => {:names => ["none", "genl","isa","umbel"], :update => "symbols"}
+  = render :partial => "list"
+  = render :partial => "stats"

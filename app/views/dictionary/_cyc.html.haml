@@ -1,0 +1,8 @@
+%div
+  - if @concepts == :not_found
+    %strong= "'#{@word}' was not found in cyc"
+  - else
+    %strong= @word
+    %table{:style => "width: 100%"}
+      - @concepts.each do |concept|
+        = render :partial => "cyc_concepts/symbol", :object => concept

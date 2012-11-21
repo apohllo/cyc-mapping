@@ -1,0 +1,5 @@
+%p.letters
+  - polish_letters.each do |letter|
+    = link_to_letter letter, update
+  :javascript
+    $('.letters a').attr('data-remote', 'true')

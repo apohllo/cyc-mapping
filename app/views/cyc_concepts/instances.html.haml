@@ -1,0 +1,7 @@
+= panel do 
+  - if @symbols.empty?
+    No elements found
+  - else
+    = image_tag("instance.png")
+    %table
+      = render :partial => "symbol", :collection => @symbols

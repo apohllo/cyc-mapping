@@ -1,0 +1,22 @@
+= panel do 
+  %h4
+    = @symbol.english_mappings[0..3].join(", ")
+    = link_to_rest(@symbol)
+    %span{:id => translations_rest_id(@symbol)}
+  %ul 
+    %li
+      = render :partial => "spellings/create_form", :locals => {:concept => @symbol, :spelling => @spelling}
+    - unless @translations.empty?
+      - @translations.each_with_index do |entry,index|
+        %li
+          = entry[:source]
+          %strong= entry[:value]
+          %span.inline
+            = form_for(Spelling.new(:name => entry[:value]), :url => concept_spellings_path(@symbol),:remote => true) do |f|
+              = f.hidden_field :name
+              = accept_button
+          = link_to("bigramy", {:action => "bigrams", :controller => "dictionary", :id => entry[:value], :count => 20},
+            :"data-update" => bigrams_id(@symbol,index),:remote => true)
+          %div{:id => bigrams_id(@symbol,index)}
+    %div{:id => related_id(@symbol,"spellings_list")}
+

@@ -1,0 +1,5 @@
+%h2= @type.name
+= render :partial => "show"
+Stats
+%span#stats
+  = link_to "...", {:action => "stats", :id => @type}, :remote => true, :"data-update" => "stats"

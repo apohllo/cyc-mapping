@@ -1,0 +1,4 @@
+$('#<%= related_id(@spelling.concept,"spellings_list") %>').
+  append("<%= escape_javascript(render(:partial => "raw_disambiguation", 
+       :object =>  Lexeme.find_all_spellings(@spelling.name))) %>");
+recurringBinds('rebind','#<%= related_id(@spelling.concept,"spellings_list") %>');

@@ -1,0 +1,12 @@
+= link_to "symbols", :controller => "cyc_concepts"
+|
+= link_to "umbel", super_types_path
+|
+/- if admin?
+/  = link_to "users", users_path
+/  |
+= link_to "search", {:controller => "dictionary"}, :method => :get, :remote => true, :"data-update" => "search"
+|
+= link_to "logout", destroy_user_session_path, :method => :delete
+/|
+/= link_to "change password", edit_user_password_path

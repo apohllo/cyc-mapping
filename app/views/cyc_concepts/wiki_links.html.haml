@@ -1,0 +1,7 @@
+= panel do
+  %table{:style => "width: 100%"}
+    - @links.each do |link|
+      - if link.is_a?(Definition)
+        = render :partial => "definitions/definition", :object => link
+      - else
+        = render :partial => "kinds/kind", :object => link

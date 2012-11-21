@@ -1,0 +1,4 @@
+#list
+  %table{:style => "width: 100%"}
+    - @symbols.each do |symbol|
+      = render :partial => "cyc_concepts/symbol", :object => symbol

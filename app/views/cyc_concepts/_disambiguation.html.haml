@@ -1,0 +1,13 @@
+%ul
+  - disambiguation.each do |mapping|
+    /%li= mapping.map{|word_form| word_form.lexeme.inflect(word_form.tags)}.join(" ")
+    - mapping.each do |word_form|
+      %li
+        %strong= tags_label(word_form.tags.values.map{|t| [nil,t]})
+        = inflection_link word_form.ssjp_lexeme,word_form.lexeme.base_form
+        = word_form.lexeme.base_form
+        %emph= word_form.lexeme.part_of_speech
+        = word_form.lexeme.inflection_label
+        %div{:id => lexeme_id(word_form.ssjp_lexeme)}
+    %li
+      = link_to image_tag("accept.png"), :url => {:action => "choose_translation", :mapping => mapping.to_json, :id => @symbol}, :remote => true

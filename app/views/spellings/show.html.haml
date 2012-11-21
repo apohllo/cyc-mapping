@@ -1,0 +1,5 @@
+= panel do
+  %ul{:id => related_id(@concept,"spellings_list")}
+    - @spellings.each do |spelling|
+      = render :partial => "spelling", :object => spelling
+    %li= render :partial => "create_form", :locals => {:concept => @concept, :spelling => @spelling}

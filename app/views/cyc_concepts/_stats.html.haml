@@ -1,0 +1,4 @@
+#stats
+  Total
+  = CycConcept.count
+  %span{:id => "symbol_stats"}= link_to "...", {:controller => "stats", :action => "symbol"}, :"data-update" => "symbol_stats", :method => :get, :remote => true

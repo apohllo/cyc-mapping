@@ -1,0 +1,28 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  timeout: 5000
+
+development: &development
+  <<: *defaults
+  database: cyc_mapping
+  username: fox
+  password:
+
+test:
+  <<: *defaults
+  database: mapping_test
+  username: user
+  password: password
+
+production:
+  <<: *defaults
+  database: mapping_prod
+  username: user
+  password: password

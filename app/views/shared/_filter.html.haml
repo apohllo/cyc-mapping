@@ -1,0 +1,8 @@
+.filter
+  Filter
+  - names.each do |name|
+    - if defined?(action)
+      = link_to_filter(name, update, action)
+    - else
+      = link_to_filter(name, update)
+  .clear

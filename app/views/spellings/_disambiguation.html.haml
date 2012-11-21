@@ -1,0 +1,21 @@
+= panel do
+  %ul
+    - disambiguation.each do |mapping|
+      - mapping.each do |word_form|
+        %li
+          %strong= tags_label(word_form.tags.values.map{|t| [nil,t]})
+          = inflection_link word_form.ssjp_lexeme,word_form.lexeme.base_form
+          = word_form.lexeme.base_form
+          %emph= word_form.lexeme.part_of_speech
+          = word_form.lexeme.inflection_label
+          %div{:id => lexeme_id(word_form.ssjp_lexeme)}
+      %li
+        = form_for [@spelling.concept,@spelling], :url => concept_spellings_path(@spelling.concept,@spelling), :remote => true do |f|
+          = f.hidden_field :name
+          = hidden_field_tag :mapping, mapping.to_json
+          = accept_button
+  %li
+    = form_for([@spelling.concept,@spelling], :url => {:controller => "spellings", :action => "raw_disambiguation"}, :remote => true) do |f|
+      = f.hidden_field :concept_id
+      = f.hidden_field :name
+      = submit_tag "wszystkie interpretacje"

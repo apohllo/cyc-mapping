@@ -1,0 +1,4 @@
+%h4 Drzewo kategorii
+%ul
+  - @items.each do |item|
+    %li= render :partial => "item", :object => item

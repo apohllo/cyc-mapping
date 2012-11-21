@@ -1,0 +1,9 @@
+= form_tag({ :controller => "dictionary", :action => "search" }, :"data-update" => "search_result", :remote => true)do
+  = text_field_tag "id"
+  = submit_tag "Search"
+  = tag(:input, {:type => "reset"})
+  %br
+  = radio_button_tag "engine", "cyc"
+  Cyc (name)
+  = radio_button_tag "engine", "cyc_symbol"
+  Cyc (strict)
