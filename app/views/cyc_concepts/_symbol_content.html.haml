@@ -12,7 +12,7 @@
     = related_button(symbol_content,"semantic_types",image_tag("umbel.ico"))
   %td
     - if symbol_content.new_record?
-      = link_to(image_tag("add.png"), {:name => symbol_content.name, :action => "create", :controller => "cyc_concepts"}, :method => :post, :remote => true)
+      .add= button_to "", {:name => symbol_content.name, :action => "create", :controller => "cyc_concepts"}, :method => :post, :remote => true
   %td
     %strong.droppable{:id => related_id(symbol_content,"as_parent")}= symbol_content.name
   %td

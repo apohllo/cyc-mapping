@@ -193,9 +193,7 @@ class Concept < ActiveRecord::Base
 
   def update_counters
     self.instances_count = get_instances_count
-    self.parents_count = self.parents.count
-    self.children_count = self.children.count
-    self.save(false)
+    self.save(:validate => false)
   end
 
   def set_new_spelling(expression, index=0)

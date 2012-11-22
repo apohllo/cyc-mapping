@@ -41,8 +41,7 @@ class CycConceptsController < ApplicationController
     @concept = CycConcept.create(:name => params[:name])
     @concept.update_english_mapping
     @concept.update_counters
-    #concept.synonym_id = concept.id
-    @concept.save(false)
+    @concept.save
   end
 
   def translations

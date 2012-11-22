@@ -257,7 +257,7 @@ th
   :left $container_width - ($spinner_width / 2)
   :padding 20px 0
 
-.delete
+.delete, .add
   :display inline
   div
     :display inherit
@@ -266,8 +266,15 @@ th
   input
     :display inherit
     :background-color red
-    :background image_url("delete.png")
     :border 0px
     :width 16px
     :height 16px
     :margin 0px
+
+.delete
+  input
+    :background image_url("delete.gif")
+
+.add
+  input
+    :background image_url("add.png")

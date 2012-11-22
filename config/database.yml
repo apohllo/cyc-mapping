@@ -11,7 +11,8 @@ defaults: &defaults
 
 development: &development
   <<: *defaults
-  database: cyc_mapping
+  #database: cyc_mapping
+  database: cyc_mapping_test
   username: fox
   password:
 

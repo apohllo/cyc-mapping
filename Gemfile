@@ -9,6 +9,8 @@ gem "devise"
 gem "cycr"
 gem "symbolize", :require => "symbolize/active_record" 
 
+gem 'debugger', group: [:development, :test]
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

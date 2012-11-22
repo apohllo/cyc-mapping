@@ -18,9 +18,6 @@ class CycConcept < Concept
   attr_writer :translation, :spelling
   serialize :ignored
 
-  scope :with_paradigm, {:conditions => "concept_id IS NOT NULL"}
-  scope :roots, {:conditions => ["root = ?",true]}
-
   class Kind
     include Enum
     enums :collection, :individual, :relation, :nart
@@ -80,14 +77,13 @@ class CycConcept < Concept
 
   def update_english_mapping
     self.english_mapping = self.english_mapping(true).first
-    self.save(false)
+    self.save(:validate => false)
   end
 
   def update_counters
-    super
     self.native_parents_count = internal_parents_count().to_i
     self.native_children_count = internal_children_count().to_i
-    self.save(false)
+    super
   end
 
   # Takse the mapping from DB or from Cyc server
